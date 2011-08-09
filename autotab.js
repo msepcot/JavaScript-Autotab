@@ -34,14 +34,14 @@
  */
 function doNumericAutotab( e )
 {
-	var elm = getElementFromEvent( e );
-	var keyCode = e.keyCode;
-	var numeric = "^\\d{" + elm.maxLength + "}$";
+  var elm = getElementFromEvent( e );
+  var keyCode = e.keyCode;
+  var numeric = "^\\d{" + elm.maxLength + "}$";
 
-	// Return if we don't find the target element or non-numeric key is pressed.
-	if ( !elm || !keyup_numericKey( keyCode ) ) return;
-	
-	autotab( elm, numeric );
+  // Return if we don't find the target element or non-numeric key is pressed.
+  if ( !elm || !keyup_numericKey( keyCode ) ) return;
+  
+  autotab( elm, numeric );
 }
 
 /* 
@@ -55,14 +55,14 @@ function doNumericAutotab( e )
  */
 function doGenericAutotab( e )
 {
-	var elm = getElementFromEvent( e );
-	var keyCode = e.keyCode;
-	var all = "^.{" + elm.maxLength + "}$";
+  var elm = getElementFromEvent( e );
+  var keyCode = e.keyCode;
+  var all = "^.{" + elm.maxLength + "}$";
 
-	// Return if we don't find the target element or a special key is pressed.
-	if ( !elm || keyup_specialKey( keyCode ) ) return;
-	
-	autotab( elm, all );	
+  // Return if we don't find the target element or a special key is pressed.
+  if ( !elm || keyup_specialKey( keyCode ) ) return;
+  
+  autotab( elm, all );  
 }
 
 /*
@@ -74,12 +74,12 @@ function doGenericAutotab( e )
  */
 function autotab( elm, valid )
 {
-	var test = RegExp(valid);
-	
-	if ( elm.value.match(test) != null )
-	{
-		focusOn( nextFormElement( elm ) );
-	}
+  var test = RegExp(valid);
+  
+  if ( elm.value.match(test) != null )
+  {
+    focusOn( nextFormElement( elm ) );
+  }
 }
 
 /*
@@ -92,23 +92,23 @@ function autotab( elm, valid )
  */
 function keyup_specialKey( code )
 {
-	if ( 0 == code )				return true; // f1 - f12 (Opera Mac)
-	if ( 5 == code || 6 == code )	return true; // help (Mac only. Firefox/Safari give different values.)
-	if ( 8 == code )				return true; // backspace
-	if ( 9 == code )				return true; // tab
-	if ( 12 == code )				return true; // num lock (Mac)
-	if ( 13 == code )				return true; // enter
-	if ( 16 <= code && code <= 18 )	return true; // shift, ctrl (also cmd on Opera Mac), alt
-	if ( 20 == code )				return true; // caps lock
-	if ( 27 == code )				return true; // escape (also num lock on Opera Mac)
-	if ( 33 <= code && code <= 40 )	return true; // page up, page down, end, home, arrow keys
-	if ( 45 == code )				return true; // insert (also help on Opera Mac)
-	if ( 46 == code )				return true; // delete
-	if ( 91 == code )				return true; // start
-	if ( 112 <= code && code <= 123 ) return true; // f1 - f12
-	if ( 144 == code )				return true; // num lock
+  if ( 0 == code )        return true; // f1 - f12 (Opera Mac)
+  if ( 5 == code || 6 == code )  return true; // help (Mac only. Firefox/Safari give different values.)
+  if ( 8 == code )        return true; // backspace
+  if ( 9 == code )        return true; // tab
+  if ( 12 == code )        return true; // num lock (Mac)
+  if ( 13 == code )        return true; // enter
+  if ( 16 <= code && code <= 18 )  return true; // shift, ctrl (also cmd on Opera Mac), alt
+  if ( 20 == code )        return true; // caps lock
+  if ( 27 == code )        return true; // escape (also num lock on Opera Mac)
+  if ( 33 <= code && code <= 40 )  return true; // page up, page down, end, home, arrow keys
+  if ( 45 == code )        return true; // insert (also help on Opera Mac)
+  if ( 46 == code )        return true; // delete
+  if ( 91 == code )        return true; // start
+  if ( 112 <= code && code <= 123 ) return true; // f1 - f12
+  if ( 144 == code )        return true; // num lock
 
-	return false;
+  return false;
 }
 
 /*
@@ -119,9 +119,9 @@ function keyup_specialKey( code )
  */
 function keyup_numericKey( code )
 {
-	if ( 48 <= code && code <= 57 ) return true; // number keys (top of keyboard)
-	else if ( 96 <= code && code <= 105 ) return true; // number keys (on key pad)
-	else return false;
+  if ( 48 <= code && code <= 57 ) return true; // number keys (top of keyboard)
+  else if ( 96 <= code && code <= 105 ) return true; // number keys (on key pad)
+  else return false;
 }
 
 /*
@@ -132,18 +132,18 @@ function keyup_numericKey( code )
  */
 function getElementFromEvent( e )
 {
-	if ( window.event && window.event.srcElement )
-	{
-		return window.event.srcElement;
-	}
-	else if ( e && e.target )
-	{
-		return e.target;
-	}
-	else
-	{
-		return null;
-	}
+  if ( window.event && window.event.srcElement )
+  {
+    return window.event.srcElement;
+  }
+  else if ( e && e.target )
+  {
+    return e.target;
+  }
+  else
+  {
+    return null;
+  }
 }
 
 /* 
@@ -153,16 +153,16 @@ function getElementFromEvent( e )
  */
 function nextFormElement( current )
 {
-	var f = current.form;
-	
-	for ( var i = 0; i < f.length; i++ )
-	{
-		if ( f[i] == current )
-		{
-			next = f[i+1]
-			return next == null ? null : next;
-		}
-	}
+  var f = current.form;
+  
+  for ( var i = 0; i < f.length; i++ )
+  {
+    if ( f[i] == current )
+    {
+      next = f[i+1]
+      return next == null ? null : next;
+    }
+  }
 }
 
 /*
@@ -173,16 +173,16 @@ function nextFormElement( current )
  */
 function focusOn( elm )
 {
-	if ( elm == null ) return;
+  if ( elm == null ) return;
 
-	try
-	{
-		elm.focus();
-	}
-	catch ( ex )
-	{
-		// Catch Mozilla exception when new focus field has autocomplete data.
-	}
+  try
+  {
+    elm.focus();
+  }
+  catch ( ex )
+  {
+    // Catch Mozilla exception when new focus field has autocomplete data.
+  }
 }
 
 /*
@@ -194,20 +194,20 @@ function focusOn( elm )
  */
 function getElementsByClassName( oElm, strTagName, strClassName )
 {
-	var arrElements = ( strTagName == "*" && oElm.all ) ? oElm.all : oElm.getElementsByTagName( strTagName );
-	var arrReturnElements = new Array();
-	strClassName = strClassName.replace( /-/g, "\-" );
-	var oRegExp = new RegExp( "(^|\s)" + strClassName + "(\s|$)" );
-	var oElement;
-	for( var i = 0; i < arrElements.length; i++ )
-	{
-		oElement = arrElements[i];
-		if( oRegExp.test( oElement.className ) )
-		{
-			arrReturnElements.push( oElement );
-		}
-	}
-	return ( arrReturnElements )
+  var arrElements = ( strTagName == "*" && oElm.all ) ? oElm.all : oElm.getElementsByTagName( strTagName );
+  var arrReturnElements = new Array();
+  strClassName = strClassName.replace( /-/g, "\-" );
+  var oRegExp = new RegExp( "(^|\s)" + strClassName + "(\s|$)" );
+  var oElement;
+  for( var i = 0; i < arrElements.length; i++ )
+  {
+    oElement = arrElements[i];
+    if( oRegExp.test( oElement.className ) )
+    {
+      arrReturnElements.push( oElement );
+    }
+  }
+  return ( arrReturnElements )
 }
 
 /*
@@ -219,20 +219,20 @@ function getElementsByClassName( oElm, strTagName, strClassName )
  */
 function addEvent( elm, evType, fn, useCapture )
 {
-	if ( elm.addEventListener )
-	{
-		elm.addEventListener( evType, fn, useCapture );
-		return true;
-	}
-	else if ( elm.attachEvent )
-	{
-		var r = elm.attachEvent( 'on' + evType, fn );
-		return r;
-	}
-	else
-	{
-		elm['on' + evType] = fn;
-	}
+  if ( elm.addEventListener )
+  {
+    elm.addEventListener( evType, fn, useCapture );
+    return true;
+  }
+  else if ( elm.attachEvent )
+  {
+    var r = elm.attachEvent( 'on' + evType, fn );
+    return r;
+  }
+  else
+  {
+    elm['on' + evType] = fn;
+  }
 }
 
 /*
@@ -243,11 +243,11 @@ function addEvent( elm, evType, fn, useCapture )
  */
 function init()
 {
-	var elms = getElementsByClassName( document, 'input', 'autotab' );
-	for ( var i = 0; i < elms.length; i++ )
-	{
-		addEvent( elms[i], 'keyup', doNumericAutotab, false );
-	}
+  var elms = getElementsByClassName( document, 'input', 'autotab' );
+  for ( var i = 0; i < elms.length; i++ )
+  {
+    addEvent( elms[i], 'keyup', doNumericAutotab, false );
+  }
 }
 
 // Add the init() function to the window's load event.
