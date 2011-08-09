@@ -1,7 +1,7 @@
 /* 
  * autotab.js
  * 
- *  - Author: Michael J. Sepcot (michael.sepcot@gmail.com)
+ *  - Author: Michael J. Sepcot (michael [dot] sepcot [at] gmail [dot] com)
  * 
  *  - Use: include this file (autotab.js) in the head of your document. You 
  *    will need to update the init() function to suit your autotabbing needs, 
