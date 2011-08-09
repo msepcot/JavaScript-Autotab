@@ -1,0 +1,21 @@
+= autotab.js
+
+Author: Michael J. Sepcot (michael.sepcot@gmail.com)
+
+== Usage
+
+Include this file (autotab.js) in the head of your document. You will need to update the init() function to suit your autotabbing needs, by default the function sets up Numeric Autotabbing on all form input fields that have the class 'autotab'.
+
+== History
+
+=== Version: 0.2.0
+
+Generic Autotab - Simulate a tab when the user has entered the maximum allowable characters in a form input field.
+
+* Changelog:
+** Refactored code to make a generic autotab function that accepts an element and a regular expression formatted string. Attempts autotab if String.Match( RegEx ) succeeds.
+** Added keyup_specialKey to check the keyCode value against known special keys, we only want to attempt an autotab if the user makes a change to the form field's value.
+
+=== Version: 0.1.0
+
+Numeric Autotab - Simulate a tab when the user has entered the maximum allowable numeric characters in a form input field.
